@@ -8,7 +8,8 @@ const eventSchema = new Schema<TEvent>(
         time: { type: String, required: [true, "Date is Required"] },
         notes: { type: String, },
         category: { type: String, },
-        archived: { type: Boolean, default: false }
+        archived: { type: Boolean, default: false },
+        isDeleted: { type: Boolean, default: false }
     },
     {
         timestamps: true

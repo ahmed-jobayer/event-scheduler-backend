@@ -37,9 +37,21 @@ const updateEvent = catchAsync(async (req, res) => {
         data: result
     })
 })
+const deleteEvent = catchAsync(async (req, res) => {
+    const { id } = req.params
+    // console.log("controller", id);
+    const result = await OrderService.deleteEventFromDB(id)
+    sendResponse.sendDataResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Event deleted successfully",
+        data: result
+    })
+})
 
 export const EventController = {
     createlEvent,
     getAllEvent,
-    updateEvent
+    updateEvent,
+    deleteEvent
 }

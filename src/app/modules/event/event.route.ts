@@ -6,5 +6,6 @@ const router = Router()
 router.post('/create-event',EventController.createlEvent)
 router.get('/', EventController.getAllEvent)
 router.put('/:id', EventController.updateEvent)
+router.delete('/:id', EventController.deleteEvent)
 
 export const EventRoutes = router

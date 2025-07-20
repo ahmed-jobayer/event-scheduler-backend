@@ -47,12 +47,18 @@ const getAllEventFromDB = async () => {
 }
 
 const updateEventIntoDB = async (_id: string) => {
-    const result = Event.updateOne({ _id }, { archived: true }, { new: true })
+    const result = await Event.updateOne({ _id }, { archived: true }, { new: true })
+    return result
+}
+const deleteEventFromDB = async (_id: string) => {
+    // console.log(_id, "delete");
+    const result = await Event.updateOne({ _id }, { isDeleted: true }, { new: true })
     return result
 }
 
 export const OrderService = {
     createEventIntoDB,
     getAllEventFromDB,
-    updateEventIntoDB
+    updateEventIntoDB,
+    deleteEventFromDB
 }

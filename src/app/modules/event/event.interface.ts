@@ -8,6 +8,7 @@ export type TEvent = {
     notes?: string;
     category?: TCategory;
     archived: boolean;
+    isDeleted?:boolean;
     createdAt: Date;
     updatedAt: Date;
 }
