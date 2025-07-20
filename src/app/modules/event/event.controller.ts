@@ -26,7 +26,20 @@ const getAllEvent = catchAsync(async (req, res) => {
     })
 })
 
+const updateEvent = catchAsync(async (req, res) => {
+    const { id } = req.params
+    // console.log("controller", id);
+    const result = await OrderService.updateEventIntoDB(id)
+    sendResponse.sendDataResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Event archived successfully",
+        data: result
+    })
+})
+
 export const EventController = {
     createlEvent,
-    getAllEvent
+    getAllEvent,
+    updateEvent
 }

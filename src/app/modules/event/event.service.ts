@@ -46,7 +46,13 @@ const getAllEventFromDB = async () => {
     return result
 }
 
+const updateEventIntoDB = async (_id: string) => {
+    const result = Event.updateOne({ _id }, { archived: true }, { new: true })
+    return result
+}
+
 export const OrderService = {
     createEventIntoDB,
     getAllEventFromDB,
+    updateEventIntoDB
 }
